@@ -946,7 +946,7 @@ OSD position variables encode the x/y position and enabled state in a single 16-
 
 | Variable                       | Default     | Range / Values                  | Description                                                        |
 | ------------------------------ | ----------- | ------------------------------- | ------------------------------------------------------------------ |
-| `osd_aux_channel`              | 1           | 1–18                            | RC channel to display as auxiliary OSD value.                      |
+| `osd_aux_channel`              | 1           | 1–18                            | AUX channel to display as the AUX VALUE OSD element. Use 1–14; see note below. |
 | `osd_aux_scale`                | 200         | 1–1000                          | Scale factor for AUX channel display.                              |
 | `osd_aux_symbol`               | 65          | ASCII code                      | Symbol character used for AUX display (65 = A).                    |
 | `osd_rcchannels`               | -1,-1,-1,-1 | Array of 4 (channel 1–18 or -1) | RC channels to display in OSD RC channels element (-1 = disabled). |
@@ -957,6 +957,8 @@ OSD position variables encode the x/y position and enabled state in a single 16-
 | `osd_ah_invert`                | OFF         | OFF, ON                         | Invert artificial horizon direction.                               |
 | `osd_ah_max_pit`               | 20          | 0–90 deg                        | Maximum pitch shown on artificial horizon (degrees).               |
 | `osd_ah_max_rol`               | 40          | 0–90 deg                        | Maximum roll shown on artificial horizon (degrees).                |
+
+In Betaflight 2025.12, `osd_aux_channel` is numbered relative to AUX1: 1 selects AUX1 (RC channel 5) and 14 selects AUX14 (RC channel 18). Although the CLI accepts 15–18, do not use these values: the AUX VALUE element reads beyond the channel array.
 
 **OSD Position Variables** (all default 341 = disabled, range 0–65535)
 
